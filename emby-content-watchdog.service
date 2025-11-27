@@ -1,21 +1,14 @@
-#/etc/systemd/system/emby-content-watchdog.service:
+#~/.config/systemd/user/emby-content-watchdog.service:
 [Unit]
 Description=EmbyContentWatchdog - Automated Emby content error detection and repair
 After=network-online.target
-Wants=network-online.target
 
 [Service]
-Type=simple
 WorkingDirectory=/opt/EmbyContentWatchdog
-ExecStart=/usr/bin/python3 /opt/EmbyContentWatchdog/emby_content_watchdog.py
+ExecStart=/usr/bin/python3 -u /opt/EmbyContentWatchdog/emby_content_watchdog.py
+Enviornment=PYTHONBUFFERED=1
 Restart=always
 RestartSec=5
-User=emby         # Or another service user
-Group=emby
-
-NoNewPrivileges=true
-ProtectSystem=full
-ProtectHome=true
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
