@@ -11,7 +11,7 @@ It is rule-driven, easy to extend, and runs as a user service on Linux (Ubuntu 2
 - Watches Emby log folder for new `.log` and `.txt` files
 - Detects failure patterns using configurable rules (`rules.json`)
 - Automatically refreshes metadata for affected items via Emby API
-- Rate-limits repeated refreshes for the same item
+- Blocks repeated refresh requests for the same item during playback requests
 - Logs all actions and errors to a daily log file with retention
 - Easy to extend: add new error patterns or actions by editing `rules.json`
 
