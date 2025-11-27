@@ -6,7 +6,6 @@ After=network-online.target
 [Service]
 WorkingDirectory=/opt/EmbyContentWatchdog
 ExecStart=/usr/bin/python3 -u /opt/EmbyContentWatchdog/emby_content_watchdog.py
-Enviornment=PYTHONBUFFERED=1
 Restart=always
 RestartSec=5
 
