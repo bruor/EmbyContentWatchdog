@@ -25,4 +25,38 @@ It is rule-driven, easy to extend, and runs as a user service on Linux (Ubuntu 2
 git clone https://github.com/yourusername/EmbyContentWatchdog.git
 cd EmbyContentWatchdog
 ```
-### 2 Install Python dependencies
+
+### 2. Install Python dependencies
+```
+apt install python3-watchdog
+```
+
+### 3. Edit configuration in the script
+```
+LOG_FOLDER = "/path/to/emby/logs"      # Emby log directory (e.g., /config/logs)
+EMBY_SERVER = "http://127.0.0.1:8096"  # Emby server URL
+EMBY_API_KEY = "YOUR_API_KEY"          # Your Emby API key
+WATCH_SECONDS = 30                     # How long to tail each new file
+RETENTION_DAYS = 7                     # How many days to keep logs
+FILE_EXTS = (".log", ".txt")           # File extensions to watch
+```
+
+### 4. Configure detection rules
+```
+
+{
+  "global": {
+    "stop_on_first_action": true,
+    "rule_reload_seconds": 60
+  },
+  "rules": [
+    {
+      "name": "EBMLHeaderParsingFailed",
+      "pattern": "EBML header parsing failed",
+      "action": "refresh_metadata",
+      "rate_limit_seconds": 300,
+      "level": "WARN"
+    }
+  ]
+}
+```
