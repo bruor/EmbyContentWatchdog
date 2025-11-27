@@ -24,5 +24,5 @@ It is rule-driven, easy to extend, and runs as a user service on Linux (Ubuntu 2
 ```bash
 git clone https://github.com/yourusername/EmbyContentWatchdog.git
 cd EmbyContentWatchdog
-
+```
 ### 2 Install Python dependencies
