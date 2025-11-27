@@ -67,6 +67,31 @@ FILE_EXTS = (".log", ".txt")           # File extensions to watch
 mkdir -p ~/.config/systemd/user
 nano ~/.config/systemd/user/emby-content-watchdog.service
 ```
+##### paste:
+```
+[Unit]
+Description=EmbyContentWatchdog (user unit)
+After=network-online.target
 
+[Service]
+WorkingDirectory=/path/to/EmbyContentWatchdog
+ExecStart=/usr/bin/python3 -u /path/to/EmbyContentWatchdog/emby_content_watchdog.py
+Environment=PYTHONUNBUFFERED=1
+Restart=always
+RestartSec=3
 
+[Install]
+WantedBy=default.target
+```
+
+#### b. Enable lingering (optional, for auto-start at boot)
+```
+sudo loginctl enable-linger $USER
+```
+
+#### c. Enable and start the service
+```
+systemctl --user daemon-reload
+systemctl --user enable --now emby-content-watchdog.service
+```
 
