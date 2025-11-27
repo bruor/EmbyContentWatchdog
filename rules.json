@@ -1,0 +1,22 @@
+{
+  "global": {
+    "stop_on_first_action": true,
+    "rule_reload_seconds": 60
+  },
+  "rules": [
+    {
+      "name": "EBMLHeaderParsingFailed",
+      "pattern": "EBML header parsing failed",
+      "action": "refresh_metadata",
+      "rate_limit_seconds": 300,
+      "level": "WARN"
+    },
+    {
+      "name": "MatroskaInvalidInput",
+      "pattern": "Invalid data found when processing input",
+      "action": "refresh_metadata",
+      "rate_limit_seconds": 300,
+      "level": "WARN"
+    }
+  ]
+}
