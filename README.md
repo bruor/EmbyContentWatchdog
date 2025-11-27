@@ -62,7 +62,7 @@ FILE_EXTS = (".log", ".txt")           # File extensions to watch
 ```
 
 ### 5. Set up as a user service (recommended)
-## a. Create a user systemd unit
+#### a. Create a user systemd unit
 ```
 mkdir -p ~/.config/systemd/user
 nano ~/.config/systemd/user/emby-content-watchdog.service
