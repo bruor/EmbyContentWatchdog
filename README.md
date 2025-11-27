@@ -2,7 +2,7 @@
 # EmbyContentWatchdog
 
 **EmbyContentWatchdog** is a Python service that monitors Emby server log files for media playback errors (like EBML header parsing failures) and automatically triggers a metadata refresh for the affected content.  
-It is rule-driven, easy to extend, and runs as a user service on Linux (Ubuntu 24.04 and later).
+It is rule-driven, easy to extend, and runs as a user service.
 
 ---
 
